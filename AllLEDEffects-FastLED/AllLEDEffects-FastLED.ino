@@ -45,7 +45,7 @@ int selected_mode = 0;
 int fxspeed = 0;
 // You should get Auth Token in the Blynk App.
 // Go to the Project Settings (nut icon).
-char auth[] = "8c491b0939b6488ba031b98bb625039f";
+char auth[] = "";
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
@@ -152,8 +152,10 @@ void loop() {
         Fire(cooling,sparking,speeddelay);
         break;
       case 3:
+        rainbowCycle(fxspeed); //change to pure rainbow next time
         break;
       case 4:
+      
         break;
       case 5:
         break;
