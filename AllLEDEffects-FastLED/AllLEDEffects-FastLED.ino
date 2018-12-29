@@ -43,6 +43,7 @@ int sparking = 120;
 int speeddelay = 15;
 int selected_mode = 0;
 int fxspeed = 0;
+int brightness = 100;
 // You should get Auth Token in the Blynk App.
 // Go to the Project Settings (nut icon).
 char auth[] = "";
@@ -77,16 +78,15 @@ void setup()
  *  8 - effect speed
  *  9 - fire:cooling
  *  10 - fire:sparking
- *  11 - fire:speeddelay
+ *  11 - fire and strobe:speeddelay
  * MODE MENU:
  *  1 - solid color
  *  2 - fire
  *  3 - rainbow
  *  4 - strobe
- *  5 - cyclon
- *  6 - new kitt
- *  7 - theatre chase
- *  8 - bouncing balls
+ *  5 - theatre chase
+ *  6 - theatre chase rainbow
+ *  7 - bouncing balls
  */
  // RGBLoop();
 
@@ -144,6 +144,7 @@ void setup()
 void loop() { 
   Blynk.run();
   while(power==1){
+    //FastLed.setBrightness(brightness);
     switch(selected_mode){
       case 1:
         setAll(red,green,blue);
@@ -155,16 +156,18 @@ void loop() {
         rainbowCycle(fxspeed); //change to pure rainbow next time
         break;
       case 4:
-      
+        Strobe(red, green, blue, 10, speeddelay, 1000);
         break;
       case 5:
+        theaterChase(red,green,blue,fxspeed);
         break;
       case 6:
+        theaterChaseRainbow(fxspeed);
         break;
       case 7:
+        
         break;
-      case 8:
-        break;
+        
     }
   }
 }
@@ -722,8 +725,8 @@ BLYNK_WRITE(V1) // Widget WRITEs to Virtual Pin V1
 }
 BLYNK_WRITE(V3) // Widget WRITEs to Virtual Pin V1
 {   
-  int brightness = map(param.asInt(),0,100,0,255);
-  
+  brightness = map(param.asInt(),0,100,0,255);
+  FastLed.setBrightness(brightness);
 }
 BLYNK_WRITE(V4) // Widget WRITEs to Virtual Pin V1
 {   
