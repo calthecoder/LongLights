@@ -726,7 +726,7 @@ BLYNK_WRITE(V1) // Widget WRITEs to Virtual Pin V1
 BLYNK_WRITE(V3) // Widget WRITEs to Virtual Pin V1
 {   
   brightness = map(param.asInt(),0,100,0,255);
-  FastLed.setBrightness(brightness);
+  FastLED.setBrightness(brightness);
 }
 BLYNK_WRITE(V4) // Widget WRITEs to Virtual Pin V1
 {   
