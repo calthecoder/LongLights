@@ -28,10 +28,9 @@
   Change WiFi ssid, pass, and Blynk auth token to run :)
   Feel free to apply it to any other example. It's simple!
  *************************************************************/
-
+ //www.tweaking4all.com/hardware/arduino/adruino-led-strip-effects/#LEDStripEffectFire
 /* Comment this out to disable prints and save space */
 #define BLYNK_PRINT Serial
-
 
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
