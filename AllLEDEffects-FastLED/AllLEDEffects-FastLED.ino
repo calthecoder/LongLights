@@ -759,5 +759,5 @@ BLYNK_WRITE(V11) // Widget WRITEs to Virtual Pin V1
 BLYNK_READ(V2) 
 {
   // This command writes Arduino's uptime in seconds to Virtual Pin V5
-  Blynk.virtualWrite(2, millis() / 1000);
+  Blynk.virtualWrite(2, millis() / 60000);
 }
