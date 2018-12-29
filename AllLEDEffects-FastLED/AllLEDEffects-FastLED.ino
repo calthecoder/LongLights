@@ -45,7 +45,7 @@ int selected_mode = 0;
 int fxspeed = 0;
 // You should get Auth Token in the Blynk App.
 // Go to the Project Settings (nut icon).
-char auth[] = " ";
+char auth[] = "";
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
